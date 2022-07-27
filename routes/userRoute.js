@@ -21,7 +21,7 @@ router.get("/", middleware, (req, res) => {
 // Get Single User
 router.get("/users/:id", (req, res) => {
   try {
-    let sql = "SELET * FROM users WHERE ?";
+    let sql = "SELECT * FROM users WHERE ?";
     let user = {
       user_id: req.params.id,
     };
