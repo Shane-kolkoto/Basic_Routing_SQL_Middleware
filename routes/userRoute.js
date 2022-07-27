@@ -18,6 +18,23 @@ router.get("/", middleware, (req, res) => {
   }
 });
 
+// Get Single User
+router.get("/users/:id", (req, res) => {
+  try {
+    let sql = "SELET * FROM users WHERE ?";
+    let user = {
+      user_id: req.params.id,
+    };
+    con.query(sql, user, (err, result) => {
+      if (err) throw err;
+      console.log(result);
+      res.send(result);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // Delete User
 router.delete("/users/:id", (req, res) => {
   try {
